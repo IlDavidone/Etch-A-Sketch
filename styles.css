@@ -32,6 +32,23 @@ button {
     }
   }
   
+@keyframes red-shades {
+    from {
+        background-color: #f0f0f0;
+    }
+    25% {
+        background-color: #f58c8f;
+    }
+    50% {
+        background-color: #f7797d;
+    }
+    75% {
+        background-color: #f58c8f;
+    }
+    100% {
+        background-color: #f0f0f0;
+    }
+}
 
 .content {
     display: flex;
@@ -152,6 +169,17 @@ button {
     flex: 1 0 40%;
     font-size: 1.4em;
     border-radius: 15px;
+}
+
+.clear-confirm {
+    flex: 1 0 40%;
+    font-size: 1.4em;
+    border-radius: 15px;
+    animation: red-shades 2.5s linear 0s infinite;
+}
+
+.clear-confirm:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
 }
 
 .toggle-grid:hover {

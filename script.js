@@ -74,7 +74,7 @@ function changeColor(e) {
       }
     }
   } else if (drawingMode == "click") {
-    if ((e.type == "mouseover") && (mouseDown == true) || e.type == "click") {
+    if ((e.type == "mouseover" && mouseDown == true) || e.type == "click") {
       if (currentMode == 1) {
         e.target.style.backgroundColor = colorValue;
       } else if (currentMode == 2) {
@@ -85,6 +85,31 @@ function changeColor(e) {
       } else if (currentMode == 3) {
         e.target.style.backgroundColor = "#ffffff";
       }
+    }
+  }
+}
+
+function clearGridButton(e) {
+  if (e.type == "mouseleave"){
+    if (counter == 1){
+        e.target.textContent = "Clear";
+        e.target.classList.toggle("clear");
+        e.target.classList.toggle("clear-confirm");
+        counter = 0;
+    }
+  }
+  if (e.type == "click") {
+    e.target.classList.toggle("clear");
+    e.target.classList.toggle("clear-confirm");
+    e.target.textContent = "Sure?";
+    counter++;
+    if (counter == 2) {
+      const gridCellItems = document.querySelectorAll(".grid-cell");
+      for (let i = 0; i < gridCellItems.length; i++) {
+        gridCellItems[i].style.backgroundColor = "#ffffff";
+      }
+      e.target.textContent = "Clear";
+      counter = 0;
     }
   }
 }
@@ -122,12 +147,13 @@ eraser.addEventListener("click", () => {
   currentMode = 3;
 });
 
-clearGrid.addEventListener("click", () => {
-  const gridCellItems = document.querySelectorAll(".grid-cell");
-  for (let i = 0; i < gridCellItems.length; i++) {
-    gridCellItems[i].style.backgroundColor = "#ffffff";
-  }
+let counter = 0;
+
+clearGrid.addEventListener("mouseover", () => {
+    clearGrid.addEventListener("click", clearGridButton);
 });
+
+clearGrid.addEventListener("mouseleave", clearGridButton)
 
 gridSizeSlider.addEventListener("input", () => {
   gridSizeText.textContent =
