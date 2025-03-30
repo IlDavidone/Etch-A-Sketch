@@ -11,7 +11,7 @@ const testbutton = document.querySelector(".test-button");
 const toggleGrid = document.querySelector(".toggle-grid");
 const gridCell = document.querySelector(".grid-cell");
 
-let value;
+let value, colorValue, currentMode;
 
 function defaultGridSize(value) {
     for(let i = 0; i < 2; i++){
@@ -47,7 +47,18 @@ function removeGridChilds() {
 
 function changeColor(e) {
     if(e.type == "mouseover"){
-        e.target.style.backgroundColor = "#000000";
+        if(currentMode == 1) {
+            e.target.style.backgroundColor = colorValue;
+        }
+        else if(currentMode == 2) {
+            const randomR = Math.floor(Math.random() * 256)
+            const randomG = Math.floor(Math.random() * 256)
+            const randomB = Math.floor(Math.random() * 256)
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+        }
+        else if(currentMode == 3){
+            e.target.style.backgroundColor = '#ffffff';
+        }
     };
 }
 
@@ -69,6 +80,25 @@ toggleGrid.addEventListener("click", () => {
 colorSelector.addEventListener("click", () => {
     colorValue = document.querySelector(".color-picker").value;
 });
+
+colorSelector.addEventListener("click", () => {
+    currentMode = 1;
+});
+
+randomColor.addEventListener("click", () => {
+    currentMode = 2;
+});
+
+eraser.addEventListener("click", () => {
+    currentMode = 3;
+});
+
+clearGrid.addEventListener("click", () => {
+    const gridCellItems = document.querySelectorAll(".grid-cell");
+    for(let i = 0; i < gridCellItems.length; i++){
+        gridCellItems[i].style.backgroundColor = '#ffffff';
+    }
+})
 
 window.onload = () => {
     defaultGridSize(DEFAULT_GRID_SIZE);
