@@ -33,7 +33,6 @@ h1 {
     appearance: none;
     width: 100px;
     height: 100px;
-    border: none;
     cursor: pointer;
     background-color: transparent;
 }
@@ -42,8 +41,8 @@ h1 {
     border: none;
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
-
+}
+  
 .random-colors {
     flex: 1 0 100%;
 }
