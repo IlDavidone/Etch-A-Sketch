@@ -1,6 +1,7 @@
 const DEFAULT_GRID_SIZE = 2;
 const DEFAULT_COLOR = "#f1f1f1";
 
+const colorPicker = document.querySelector(".color-picker");
 const colorSelector = document.querySelector(".color-selector");
 const randomColor = document.querySelector(".random-colors");
 const eraser = document.querySelector(".eraser");
@@ -131,6 +132,11 @@ toggleGrid.addEventListener("click", () => {
   }
 });
 
+colorPicker.addEventListener("mouseleave", () => {
+  colorValue = document.querySelector(".color-picker").value;
+  currentMode = 1;
+})
+
 colorSelector.addEventListener("click", () => {
   colorValue = document.querySelector(".color-picker").value;
 });
@@ -167,6 +173,7 @@ gridSizeSlider.addEventListener("input", () => {
 
 window.onload = () => {
   defaultGridSize(DEFAULT_GRID_SIZE);
-  currentMode = 1;
+  //default color mode (1)
   colorValue = document.querySelector(".color-picker").value;
+  currentMode = 1;
 };
