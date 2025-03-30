@@ -10,6 +10,10 @@ h1 {
     margin-bottom: 40px;
 }
 
+button {
+    font-family: "Tektur", sans-serif;
+}
+
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -30,15 +34,39 @@ h1 {
     height: 100px;
 }
 
-button :hover
+.color-selector:hover {
+    background-color: #edeff2;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
+}
+
+.color-selector:active {
+    background-color: #d9d9de;
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 8px 12px 0px;
+}
 
 .color-selector {
-    flex: 1 1 auto;
+    flex: 1 1 70%;
     font-size: 2.5em;
     border-radius: 15px;
 }
 
+.color-picker:hover {
+    transition: 0.2s;
+    transform: scale(1.05);
+}
+
+.color-picker:active {
+    transition: transform 0.1s ease-in-out;
+    transform: scale(1);
+}
+
+.color-picker:hover::-webkit-color-swatch {
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 4px 4px 0px;
+}
+
 .color-picker {
+    transition: 0.2s;
+    transform: scale(1);
     flex: 0 1 auto;
     appearance: none;
     width: 100px;
@@ -54,10 +82,20 @@ button :hover
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
   
+.random-colors:hover {
+    background-color: #edeff2;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
+}
+
 .random-colors {
     flex: 1 0 40%;
     font-size: 1.4em;
     border-radius: 15px;
+}
+
+.eraser:hover {
+    background-color: #edeff2;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
 }
 
 .eraser {
@@ -66,10 +104,20 @@ button :hover
     border-radius: 15px;
 }
 
+.clear:hover {
+    background-color: #edeff2;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
+}
+
 .clear {
     flex: 1 0 40%;
     font-size: 1.4em;
     border-radius: 15px;
+}
+
+.toggle-grid:hover {
+    background-color: #edeff2;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
 }
 
 .toggle-grid {
@@ -87,6 +135,11 @@ button :hover
 .grid-size-range {
     accent-color: red;
     transform: scale(2);
+}
+
+.grid-size-selector:hover {
+    background-color: #edeff2;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
 }
 
 .grid-size-selector {
