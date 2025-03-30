@@ -15,7 +15,7 @@ const gridSizeSlider = document.querySelector(".grid-size-range");
 
 let value,
   colorValue,
-  currentMode,
+  currentMode = 1,
   drawingMode = "click";
 
 gridSizeText.textContent =
@@ -167,4 +167,6 @@ gridSizeSlider.addEventListener("input", () => {
 
 window.onload = () => {
   defaultGridSize(DEFAULT_GRID_SIZE);
+  currentMode = 1;
+  colorValue = document.querySelector(".color-picker").value;
 };

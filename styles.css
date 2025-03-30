@@ -7,6 +7,7 @@ h1 {
     font-family: "Bytesized", sans-serif;
     font-size: 4em;
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
@@ -265,6 +266,9 @@ footer {
 }
 
 .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     flex: 1 0 auto;
 }
 
