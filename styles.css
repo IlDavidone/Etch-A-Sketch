@@ -8,11 +8,13 @@ h1 {
 
 .content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
 }
 
 .grid {
+    border: 2px solid grey;
     flex: 1 0 60%;
     max-width: 508px;
     height: 504px;
@@ -25,10 +27,14 @@ h1 {
     height: 100%;
     box-sizing: content-box;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .grid-cell {
-    width: 100%;
+    min-width: 100%;
     flex: 1 0 auto;
+}
+
+.grid-cell-border {
+    border: 1px groove darkgrey;
 }
