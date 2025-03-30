@@ -1,5 +1,5 @@
 const DEFAULT_GRID_SIZE = 2;
-const DEFAULT_COLOR = '#f1f1f1';
+const DEFAULT_COLOR = "#f1f1f1";
 
 const colorSelector = document.querySelector(".color-selector");
 const randomColor = document.querySelector(".random-colors");
@@ -13,14 +13,18 @@ const gridCell = document.querySelector(".grid-cell");
 const gridSizeText = document.querySelector(".grid-size");
 const gridSizeSlider = document.querySelector(".grid-size-range");
 
-let value, colorValue, currentMode;
+let value,
+  colorValue,
+  currentMode,
+  drawingMode = "click";
 
-gridSizeText.textContent = DEFAULT_GRID_SIZE * 2 + ' x ' + DEFAULT_GRID_SIZE * 2;
+gridSizeText.textContent =
+  DEFAULT_GRID_SIZE * 2 + " x " + DEFAULT_GRID_SIZE * 2;
 
 function defaultGridSize(value) {
-    for(let i = 0; i < 2; i++){
-        createGridLayout(value);
-    }
+  for (let i = 0; i < 2; i++) {
+    createGridLayout(value);
+  }
 }
 
 function createGridLayout(value) {
@@ -31,7 +35,10 @@ function createGridLayout(value) {
     for (u = 0; u < value; u++) {
       const gridCell = document.createElement("div");
       gridCell.classList.add("grid-cell", "grid-cell-border");
+      gridCell.setAttribute("draggable", "false");
+      gridCell.addEventListener("click", changeColor);
       gridCell.addEventListener("mouseover", changeColor);
+      gridCell.addEventListener("mousedown", changeColor);
       gridElementVertical.appendChild(gridCell);
     }
   }
@@ -39,77 +46,99 @@ function createGridLayout(value) {
 }
 
 function removeGridChilds() {
+  let gridChildCount = grid.childElementCount;
 
-    let gridChildCount = grid.childElementCount;
-
-    if(gridChildCount > 0){
-    for(i = 1; i <= gridChildCount; i++){
-        grid.removeChild(grid.lastChild);
-    }}
-    else return 0;
+  if (gridChildCount > 0) {
+    for (i = 1; i <= gridChildCount; i++) {
+      grid.removeChild(grid.lastChild);
+    }
+  } else return 0;
 }
 
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
 function changeColor(e) {
-    if(e.type == "mouseover"){
-        if(currentMode == 1) {
-            e.target.style.backgroundColor = colorValue;
-        }
-        else if(currentMode == 2) {
-            const randomR = Math.floor(Math.random() * 256)
-            const randomG = Math.floor(Math.random() * 256)
-            const randomB = Math.floor(Math.random() * 256)
-            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
-        }
-        else if(currentMode == 3){
-            e.target.style.backgroundColor = '#ffffff';
-        }
-    };
+  if (drawingMode == "mouseover") {
+    if (e.type == "mouseover") {
+      if (currentMode == 1) {
+        e.target.style.backgroundColor = colorValue;
+      } else if (currentMode == 2) {
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+      } else if (currentMode == 3) {
+        e.target.style.backgroundColor = "#ffffff";
+      }
+    }
+  } else if (drawingMode == "click") {
+    if ((e.type == "mouseover") && (mouseDown == true) || e.type == "click") {
+      if (currentMode == 1) {
+        e.target.style.backgroundColor = colorValue;
+      } else if (currentMode == 2) {
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+      } else if (currentMode == 3) {
+        e.target.style.backgroundColor = "#ffffff";
+      }
+    }
+  }
 }
 
 gridSizeSelector.addEventListener("click", () => {
-    removeGridChilds();
-    value = gridSizeSlider.value;
-    for (i = 0; i < value; i++) {
-        createGridLayout(value);
-      }
+  if (drawingMode == "mouseover") {
+    drawingMode = "click";
+    gridSizeSelector.textContent = "Mode: Click";
+  } else {
+    drawingMode = "mouseover";
+    gridSizeSelector.textContent = "Mode: Hover";
+  }
 });
 
 toggleGrid.addEventListener("click", () => {
-    const gridCellItems = document.querySelectorAll(".grid-cell");
-        for(let i = 0; i < gridCellItems.length; i++){
-            gridCellItems[i].classList.toggle("grid-cell-border");
-        }
+  const gridCellItems = document.querySelectorAll(".grid-cell");
+  for (let i = 0; i < gridCellItems.length; i++) {
+    gridCellItems[i].classList.toggle("grid-cell-border");
+  }
 });
 
 colorSelector.addEventListener("click", () => {
-    colorValue = document.querySelector(".color-picker").value;
+  colorValue = document.querySelector(".color-picker").value;
 });
 
 colorSelector.addEventListener("click", () => {
-    currentMode = 1;
+  currentMode = 1;
 });
 
 randomColor.addEventListener("click", () => {
-    currentMode = 2;
+  currentMode = 2;
 });
 
 eraser.addEventListener("click", () => {
-    currentMode = 3;
+  currentMode = 3;
 });
 
 clearGrid.addEventListener("click", () => {
-    const gridCellItems = document.querySelectorAll(".grid-cell");
-    for(let i = 0; i < gridCellItems.length; i++){
-        gridCellItems[i].style.backgroundColor = '#ffffff';
-    }
-})
+  const gridCellItems = document.querySelectorAll(".grid-cell");
+  for (let i = 0; i < gridCellItems.length; i++) {
+    gridCellItems[i].style.backgroundColor = "#ffffff";
+  }
+});
 
 gridSizeSlider.addEventListener("input", () => {
-    gridSizeText.textContent = gridSizeSlider.value + ' x ' + gridSizeSlider.value;
-})
+  gridSizeText.textContent =
+    gridSizeSlider.value + " x " + gridSizeSlider.value;
+  removeGridChilds();
+  value = gridSizeSlider.value;
+  for (i = 0; i < value; i++) {
+    createGridLayout(value);
+  }
+});
 
 window.onload = () => {
-    defaultGridSize(DEFAULT_GRID_SIZE);
-}
-
-
+  defaultGridSize(DEFAULT_GRID_SIZE);
+};

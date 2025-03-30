@@ -223,5 +223,5 @@ button {
 }
 
 .grid-cell-border {
-    border: 1px groove darkgrey;
+    border: 1px groove #e8e8eb;
 }

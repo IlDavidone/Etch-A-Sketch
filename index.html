@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>Etch A Sketch</title>
   </head>
-  <body>
+  <body ondragstart="return false;" ondrop="return false;">
     <header>
       <h1>Etch-A-Sketch</h1>
     </header>
@@ -36,10 +36,10 @@
           </p>
         </div>
 
-        <button class="grid-size-selector">Apply</button>
+        <button class="grid-size-selector">Mode: Click</button>
       </div>
       <!-- Right-center side -->
-      <div class="grid"></div>
+      <div class="grid" draggable="false"></div>
     </div>
     <footer>
       <div class="github-icon"></div>
