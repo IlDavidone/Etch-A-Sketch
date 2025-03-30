@@ -10,8 +10,12 @@ const grid = document.querySelector(".grid");
 const testbutton = document.querySelector(".test-button");
 const toggleGrid = document.querySelector(".toggle-grid");
 const gridCell = document.querySelector(".grid-cell");
+const gridSizeText = document.querySelector(".grid-size");
+const gridSizeSlider = document.querySelector(".grid-size-range");
 
 let value, colorValue, currentMode;
+
+gridSizeText.textContent = DEFAULT_GRID_SIZE * 2 + ' x ' + DEFAULT_GRID_SIZE * 2;
 
 function defaultGridSize(value) {
     for(let i = 0; i < 2; i++){
@@ -64,7 +68,7 @@ function changeColor(e) {
 
 gridSizeSelector.addEventListener("click", () => {
     removeGridChilds();
-    value = prompt("Enter your preferred grid size (ex: 16)");
+    value = gridSizeSlider.value;
     for (i = 0; i < value; i++) {
         createGridLayout(value);
       }
@@ -98,6 +102,10 @@ clearGrid.addEventListener("click", () => {
     for(let i = 0; i < gridCellItems.length; i++){
         gridCellItems[i].style.backgroundColor = '#ffffff';
     }
+})
+
+gridSizeSlider.addEventListener("input", () => {
+    gridSizeText.textContent = gridSizeSlider.value + ' x ' + gridSizeSlider.value;
 })
 
 window.onload = () => {

@@ -13,8 +13,43 @@ h1 {
     gap: 50px;
 }
 
+.utilities {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.utilities button {
+    height: 100px;
+}
+
+.color-selector {
+    flex: 1 1 auto;
+}
+
+.color-picker {
+    flex: 0 1 auto;
+    appearance: none;
+    width: 100px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+.random-colors {
+    flex: 1 0 100%;
+}
+
 .grid {
-    border: 2px solid grey;
+    border: 5px solid grey;
     flex: 1 0 60%;
     max-width: 508px;
     height: 504px;
