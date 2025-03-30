@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bytesized&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css" />
     <title>Etch A Sketch</title>
   </head>
@@ -16,12 +19,24 @@
         <button class="color-selector">Color Mode</button>
         <input type="color" class="color-picker" />
         <button class="random-colors">Random Colors</button>
-        <button class="toggle-grid">Toggle Grid</button>
         <button class="eraser">Eraser</button>
         <button class="clear">Clear</button>
-        <p class="grid-size"><p>
-        <input type="range" class="grid-size-range" name="volume" min="4" max="64" value="4"/>
-        <button class="grid-size-selector">Apply Grid Size</button>
+        <button class="toggle-grid">Toggle Grid</button>
+        <div class="grid-info-wrapper">
+          <p class="grid-size"></p>
+          <p>
+            <input
+              type="range"
+              class="grid-size-range"
+              name="volume"
+              min="4"
+              max="64"
+              value="4"
+            />
+          </p>
+        </div>
+
+        <button class="grid-size-selector">Apply</button>
       </div>
       <!-- Right-center side -->
       <div class="grid"></div>

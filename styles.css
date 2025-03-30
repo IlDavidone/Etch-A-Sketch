@@ -1,9 +1,13 @@
 body {
+    font-family: "Roboto", sans-serif;
     margin: 0;
 }
 
 h1 {
+    font-family: "Bytesized", sans-serif;
+    font-size: 4em;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .content {
@@ -15,8 +19,10 @@ h1 {
 
 .utilities {
     display: flex;
+    flex: 0 0 20%;
     flex-wrap: wrap;
-    align-content: flex-start;
+    gap: 10px;
+    align-content: space-evenly;
     justify-content: center;
 }
 
@@ -24,8 +30,12 @@ h1 {
     height: 100px;
 }
 
+button :hover
+
 .color-selector {
     flex: 1 1 auto;
+    font-size: 2.5em;
+    border-radius: 15px;
 }
 
 .color-picker {
@@ -33,6 +43,7 @@ h1 {
     appearance: none;
     width: 100px;
     height: 100px;
+    border: none;
     cursor: pointer;
     background-color: transparent;
 }
@@ -44,14 +55,51 @@ h1 {
 }
   
 .random-colors {
-    flex: 1 0 100%;
+    flex: 1 0 40%;
+    font-size: 1.4em;
+    border-radius: 15px;
+}
+
+.eraser {
+    flex: 1 0 40%;
+    font-size: 1.4em;
+    border-radius: 15px;
+}
+
+.clear {
+    flex: 1 0 40%;
+    font-size: 1.4em;
+    border-radius: 15px;
+}
+
+.toggle-grid {
+    flex: 1 0 40%;
+    font-size: 1.4em;
+    border-radius: 15px;
+}
+
+.grid-info-wrapper {
+    font-size: 1.5em;
+    text-align: center;
+    flex: 1 0 70%;
+}
+
+.grid-size-range {
+    accent-color: red;
+    transform: scale(2);
+}
+
+.grid-size-selector {
+    flex: 1 0 40%;
+    font-size: 1.4em;
+    border-radius: 15px;
 }
 
 .grid {
     border: 5px solid grey;
     flex: 1 0 60%;
-    max-width: 508px;
-    height: 504px;
+    max-width: 650px;
+    height: 650px;
     display: flex;
 }
 
