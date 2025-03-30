@@ -5,3 +5,30 @@ body {
 h1 {
     text-align: center;
 }
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.grid {
+    flex: 1 0 60%;
+    max-width: 508px;
+    height: 504px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vertical-grid {
+    flex: 1 0 auto;
+    height: 100%;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-cell {
+    width: 100%;
+    flex: 1 0 auto;
+}
