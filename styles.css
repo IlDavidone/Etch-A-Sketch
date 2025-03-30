@@ -14,6 +14,25 @@ button {
     font-family: "Tektur", sans-serif;
 }
 
+@keyframes rainbow {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }
+  
+
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -40,8 +59,9 @@ button {
 }
 
 .color-selector:active {
-    background-color: #d9d9de;
-    box-shadow: rgba(0, 0, 0, 0.30) 0px 8px 12px 0px;
+    transition: 0.1s;
+    background-color: #e6e6eb;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 9px 0px;
 }
 
 .color-selector {
@@ -81,10 +101,17 @@ button {
     border-radius: 50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-  
+
 .random-colors:hover {
     background-color: #edeff2;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
+    animation: rainbow 6s linear 0s infinite;
+}
+
+.random-colors:active {
+    transition: 0.1s;
+    background-color: #e6e6eb;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 9px 0px;
 }
 
 .random-colors {
@@ -98,6 +125,12 @@ button {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
 }
 
+.eraser:active {
+    transition: 0.1s;
+    background-color: #e6e6eb;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 9px 0px;
+}
+
 .eraser {
     flex: 1 0 40%;
     font-size: 1.4em;
@@ -109,6 +142,12 @@ button {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
 }
 
+.clear:active {
+    transition: 0.1s;
+    background-color: #e6e6eb;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 9px 0px;
+}
+
 .clear {
     flex: 1 0 40%;
     font-size: 1.4em;
@@ -118,6 +157,12 @@ button {
 .toggle-grid:hover {
     background-color: #edeff2;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
+}
+
+.toggle-grid:active {
+    transition: 0.1s;
+    background-color: #e6e6eb;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 9px 0px;
 }
 
 .toggle-grid {
@@ -133,13 +178,20 @@ button {
 }
 
 .grid-size-range {
-    accent-color: red;
+    background-color: transparent;
+    accent-color: black;
     transform: scale(2);
 }
 
 .grid-size-selector:hover {
     background-color: #edeff2;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px 0px;
+}
+
+.grid-size-selector:active {
+    transition: 0.1s;
+    background-color: #e6e6eb;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 9px 0px;
 }
 
 .grid-size-selector {
@@ -172,8 +224,4 @@ button {
 
 .grid-cell-border {
     border: 1px groove darkgrey;
-}
-
-.grid-cell-color :hover {
-    background-color: #000000;
 }
