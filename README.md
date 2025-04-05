@@ -2,6 +2,7 @@
 Etch-a-sketch drawing tablet made website with html, css and javascript knowledge and tools.
 
 <br>
+<br>
 
 Future updates: Bigger grid size; More brush types and sizes; Background color selector.
 
