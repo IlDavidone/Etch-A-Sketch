@@ -1,6 +1,8 @@
 const DEFAULT_GRID_SIZE = 2;
 const DEFAULT_COLOR = "#f1f1f1";
 
+
+//query selectors declaration
 const colorPicker = document.querySelector(".color-picker");
 const colorSelector = document.querySelector(".color-selector");
 const randomColor = document.querySelector(".random-colors");
@@ -28,6 +30,8 @@ function defaultGridSize(value) {
   }
 }
 
+
+//grid creation function (through size slider and default grid size)
 function createGridLayout(value) {
   const gridElementVertical = document.createElement("div");
   gridElementVertical.classList.add("vertical-grid");
@@ -46,6 +50,8 @@ function createGridLayout(value) {
   createGridElements(value);
 }
 
+
+//function called in clear button 
 function removeGridChilds() {
   let gridChildCount = grid.childElementCount;
 
@@ -56,10 +62,11 @@ function removeGridChilds() {
   } else return 0;
 }
 
+
+//change color function through three modes (custom color, random color and eraser mode
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
-
 function changeColor(e) {
   if (drawingMode == "mouseover") {
     if (e.type == "mouseover") {
@@ -90,6 +97,8 @@ function changeColor(e) {
   }
 }
 
+
+//grid clearing function, called in clear button event listener
 function clearGridButton(e) {
   if (e.type == "mouseleave"){
     if (counter == 1){
